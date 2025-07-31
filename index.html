@@ -2242,6 +2242,18 @@
       const audio = document.getElementById("backgroundMusic");
       const audioToggle = document.getElementById("audioToggle");
 
+      function showVerification() {
+  const currentStepEl = document.getElementById(`step${currentStep}`);
+  if (currentStepEl) currentStepEl.classList.remove("active");
+
+  currentStep = 'Verification';
+
+  setTimeout(() => {
+    const nextStepEl = document.getElementById("stepVerification");
+    if (nextStepEl) nextStepEl.classList.add("active");
+  }, 300);
+      }
+      
       // Audio control function
       function toggleAudio() {
         if (audioPlaying) {
