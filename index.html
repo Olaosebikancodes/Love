@@ -4,11 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy National Girlfriend Day</title>
+    <!-- Swiper CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <style>
       * {
         margin: 0;
@@ -34,6 +38,7 @@
         padding: 20px 0;
       }
 
+      /* Floating hearts background */
       .heart {
         position: absolute;
         color: rgba(255, 182, 193, 0.3);
@@ -289,10 +294,9 @@
       .typewriter-text {
         overflow: visible;
         white-space: normal;
-        border-right: none; 
+        border-right: none;
         animation: none;
       }
-
 
       @keyframes fadeInTypewriter {
         to {
@@ -386,6 +390,27 @@
         }
       }
 
+      .audio-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255, 107, 107, 0.9);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .audio-controls:hover {
+        transform: scale(1.1);
+        background: rgba(255, 107, 107, 1);
+      }
+
       /* Responsive design */
       @media (max-width: 768px) {
         body {
@@ -450,6 +475,18 @@
     <div class="sparkle" style="bottom: 20%; left: 30%; animation-delay: 2.5s">
       ✨
     </div>
+
+    <!-- Audio element with better controls -->
+    <audio id="backgroundMusic" loop preload="auto">
+      <source src="hehe.mp3" type="audio/mpeg" />
+      <source src="hehe.ogg" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio control button -->
+    <button class="audio-controls" id="audioToggle" onclick="toggleAudio()">
+      🔊
+    </button>
 
     <div class="container">
       <!-- Step 1: Initial Screen -->
@@ -728,8 +765,48 @@
 
     <script>
       let currentStep = 1;
+      let audioPlaying = false;
+      const audio = document.getElementById("backgroundMusic");
+      const audioToggle = document.getElementById("audioToggle");
+
+      // Audio control function
+      function toggleAudio() {
+        if (audioPlaying) {
+          audio.pause();
+          audioToggle.innerHTML = "🔇";
+          audioPlaying = false;
+        } else {
+          audio.play().catch((e) => {
+            console.log("Audio play failed:", e);
+            // Show a message or handle the error
+          });
+          audioToggle.innerHTML = "🔊";
+          audioPlaying = true;
+        }
+      }
+
+      // Try to play audio when user first interacts
+      function initAudio() {
+        if (!audioPlaying) {
+          audio
+            .play()
+            .then(() => {
+              audioPlaying = true;
+              audioToggle.innerHTML = "🔊";
+            })
+            .catch((e) => {
+              console.log(
+                "Auto-play blocked, user will need to click audio button"
+              );
+              audioToggle.innerHTML = "🔇";
+            });
+        }
+      }
 
       function nextStep() {
+        // Try to start audio on first user interaction
+        initAudio();
+
         const currentStepEl = document.getElementById(`step${currentStep}`);
         currentStepEl.classList.remove("active");
 
@@ -764,6 +841,8 @@
       }
 
       function showSadMessage() {
+        initAudio();
+
         const currentStepEl = document.getElementById(`step${currentStep}`);
         currentStepEl.classList.remove("active");
 
@@ -773,6 +852,8 @@
       }
 
       function goToStep(step) {
+        initAudio();
+
         const currentStepEl = document.querySelector(".step.active");
         currentStepEl.classList.remove("active");
 
@@ -838,6 +919,8 @@
       container.addEventListener("mouseleave", function () {
         this.style.transform = "translateY(0) scale(1)";
       });
+
+      // Initialize Swiper
       const swiper = new Swiper(".mySwiper", {
         loop: true,
         pagination: {
@@ -848,6 +931,16 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+      });
+
+      // Audio event listeners
+      audio.addEventListener("loadeddata", () => {
+        console.log("Audio loaded successfully");
+      });
+
+      audio.addEventListener("error", (e) => {
+        console.log("Audio loading error:", e);
+        audioToggle.innerHTML = "❌";
       });
     </script>
   </body>
