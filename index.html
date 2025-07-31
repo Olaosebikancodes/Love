@@ -291,12 +291,12 @@
         animation: fadeInTypewriter 0.5s ease-in-out forwards;
       }
 
-      .typewriter-text {
-        overflow: hidden;
-        border-right: 2px solid #ff6b6b;
-        white-space: nowrap;
-        margin: 0;
-        animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+.typewriter-text {
+  overflow: visible;
+  white-space: normal;
+  border-right: none;
+  animation: none;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
       }
 
       @keyframes fadeInTypewriter {
