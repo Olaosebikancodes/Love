@@ -503,7 +503,7 @@
         <div class="envelope"></div>
         <div class="cute-text">Do you want to open it?</div>
         <div class="cute-text">"ヾ(≧∇≦*)ゝ"</div>
-        <button class="btn" id="openItBtn">Open It</button>
+        <button class="btn" onclick="showVerification()">Open It</button>
         <button class="btn secondary" onclick="showSadMessage()">No :(</button>
       </div>
 
@@ -2364,7 +2364,7 @@
           document.getElementById("step1").classList.add("active");
         }, 300);
       }
-
+      document.getElementById("openItBtn").addEventListener("click", showVerification);
       // Add some interactive sparkles on click
       document.addEventListener("click", function (e) {
         const sparkle = document.createElement("div");
