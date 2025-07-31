@@ -2253,6 +2253,30 @@
     if (nextStepEl) nextStepEl.classList.add("active");
   }, 300);
       }
+
+      function verifyNickname() {
+  const nickname = document.getElementById("nicknameInput").value.trim().toLowerCase();
+
+  if (nickname === "peaches") {
+    document.getElementById("stepVerification").classList.remove("active");
+    currentStep = 4;
+    setTimeout(() => {
+      document.getElementById("step4").classList.add("active");
+      startTypewriterEffect();
+    }, 300);
+  } else {
+    document.getElementById("stepVerification").classList.remove("active");
+    setTimeout(() => {
+      document.getElementById("stepWrongRecipient").classList.add("active");
+    }, 300);
+  }
+}
+
+function handleEnterKey(event) {
+  if (event.key === "Enter") {
+    verifyNickname();
+  }
+        }
       
       // Audio control function
       function toggleAudio() {
