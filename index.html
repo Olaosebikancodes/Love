@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
       * {
@@ -40,9 +41,15 @@
       }
 
       @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       .heart {
@@ -55,7 +62,8 @@
       }
 
       @keyframes floatHeart {
-        0%, 100% {
+        0%,
+        100% {
           transform: translateY(0px) rotate(0deg) scale(1);
           opacity: 0.6;
         }
@@ -81,8 +89,7 @@
         width: 90%;
         max-width: 520px;
         text-align: center;
-        box-shadow: 
-          0 25px 80px rgba(0, 0, 0, 0.15),
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15),
           inset 0 1px 0 rgba(255, 255, 255, 0.3),
           0 0 0 1px rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
@@ -111,8 +118,7 @@
 
       .container:hover {
         transform: translateY(-5px);
-        box-shadow: 
-          0 35px 100px rgba(0, 0, 0, 0.2),
+        box-shadow: 0 35px 100px rgba(0, 0, 0, 0.2),
           inset 0 1px 0 rgba(255, 255, 255, 0.4),
           0 0 0 1px rgba(255, 255, 255, 0.15);
       }
@@ -152,8 +158,7 @@
         justify-content: center;
         font-size: 70px;
         color: white;
-        box-shadow: 
-          0 15px 40px rgba(255, 107, 107, 0.4),
+        box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4),
           inset 0 2px 0 rgba(255, 255, 255, 0.3);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
@@ -167,15 +172,19 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
         transform: translateX(-100%);
         transition: transform 0.6s ease;
       }
 
       .profile-image:hover {
         transform: scale(1.08) rotate(3deg);
-        box-shadow: 
-          0 20px 50px rgba(255, 107, 107, 0.5),
+        box-shadow: 0 20px 50px rgba(255, 107, 107, 0.5),
           inset 0 2px 0 rgba(255, 255, 255, 0.4);
       }
 
@@ -199,8 +208,13 @@
       }
 
       @keyframes gradientText {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
 
       .date {
@@ -231,8 +245,7 @@
         font-weight: 700;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 
-          0 10px 30px rgba(102, 126, 234, 0.4),
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
         margin: 12px;
         position: relative;
@@ -263,8 +276,7 @@
 
       .btn:hover {
         transform: translateY(-4px) scale(1.05);
-        box-shadow: 
-          0 15px 40px rgba(102, 126, 234, 0.5),
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.3);
         background: linear-gradient(135deg, #764ba2, #667eea);
       }
@@ -275,15 +287,13 @@
 
       .btn.secondary {
         background: linear-gradient(135deg, #f093fb, #f5576c);
-        box-shadow: 
-          0 10px 30px rgba(240, 147, 251, 0.4),
+        box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
       }
 
       .btn.secondary:hover {
         background: linear-gradient(135deg, #f5576c, #f093fb);
-        box-shadow: 
-          0 15px 40px rgba(240, 147, 251, 0.5),
+        box-shadow: 0 15px 40px rgba(240, 147, 251, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.3);
       }
 
@@ -294,8 +304,7 @@
         position: relative;
         background: linear-gradient(135deg, #ffeaa7, #fab1a0, #fd79a8);
         border-radius: 15px;
-        box-shadow: 
-          0 15px 40px rgba(253, 121, 168, 0.3),
+        box-shadow: 0 15px 40px rgba(253, 121, 168, 0.3),
           inset 0 2px 0 rgba(255, 255, 255, 0.3);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         overflow: hidden;
@@ -328,8 +337,7 @@
 
       .envelope:hover {
         transform: scale(1.08) rotate(-3deg);
-        box-shadow: 
-          0 20px 50px rgba(253, 121, 168, 0.4),
+        box-shadow: 0 20px 50px rgba(253, 121, 168, 0.4),
           inset 0 2px 0 rgba(255, 255, 255, 0.4);
       }
 
@@ -341,7 +349,11 @@
       }
 
       @keyframes bounceHeart {
-        0%, 20%, 50%, 80%, 100% {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
           transform: translateY(0) scale(1);
         }
         40% {
@@ -362,8 +374,7 @@
         line-height: 1.9;
         color: rgba(255, 255, 255, 0.95);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 
-          0 10px 30px rgba(0, 0, 0, 0.1),
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
         max-height: 70vh;
         overflow-y: auto;
@@ -387,7 +398,8 @@
       }
 
       .typewriter-paragraph.show {
-        animation: slideInText 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        animation: slideInText 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+          forwards;
       }
 
       @keyframes slideInText {
@@ -421,7 +433,8 @@
       }
 
       @keyframes sparkleAnim {
-        0%, 100% {
+        0%,
+        100% {
           opacity: 0;
           transform: scale(0) rotate(0deg);
         }
@@ -442,8 +455,7 @@
         border-radius: 50%;
         font-size: 24px;
         cursor: pointer;
-        box-shadow: 
-          0 10px 25px rgba(102, 126, 234, 0.4),
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4),
           inset 0 2px 0 rgba(255, 255, 255, 0.2);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         z-index: 1000;
@@ -453,8 +465,7 @@
       .audio-controls:hover {
         transform: scale(1.15);
         background: linear-gradient(135deg, #764ba2, #667eea);
-        box-shadow: 
-          0 15px 35px rgba(102, 126, 234, 0.5),
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5),
           inset 0 2px 0 rgba(255, 255, 255, 0.3);
       }
 
@@ -471,8 +482,7 @@
         text-align: center;
         outline: none;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 
-          0 8px 25px rgba(0, 0, 0, 0.1),
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
         display: block;
         color: white;
@@ -481,8 +491,7 @@
 
       .verification-input:focus {
         border-color: rgba(255, 255, 255, 0.6);
-        box-shadow: 
-          0 12px 35px rgba(102, 126, 234, 0.3),
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.3);
         transform: translateY(-3px) scale(1.02);
         background: rgba(255, 255, 255, 0.2);
@@ -501,7 +510,8 @@
       }
 
       @keyframes lockPulse {
-        0%, 100% {
+        0%,
+        100% {
           transform: scale(1);
           opacity: 0.8;
         }
@@ -525,9 +535,16 @@
       }
 
       @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-8px); }
-        75% { transform: translateX(8px); }
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-8px);
+        }
+        75% {
+          transform: translateX(8px);
+        }
       }
 
       /* Swiper customization */
@@ -611,18 +628,36 @@
   <body>
     <!-- Floating hearts background -->
     <div class="heart" style="top: 10%; left: 10%; animation-delay: 0s">💕</div>
-    <div class="heart" style="top: 20%; right: 10%; animation-delay: 1s">💖</div>
-    <div class="heart" style="bottom: 10%; left: 15%; animation-delay: 2s">💝</div>
-    <div class="heart" style="top: 50%; right: 20%; animation-delay: 3s">💗</div>
-    <div class="heart" style="bottom: 30%; right: 15%; animation-delay: 4s">💘</div>
+    <div class="heart" style="top: 20%; right: 10%; animation-delay: 1s">
+      💖
+    </div>
+    <div class="heart" style="bottom: 10%; left: 15%; animation-delay: 2s">
+      💝
+    </div>
+    <div class="heart" style="top: 50%; right: 20%; animation-delay: 3s">
+      💗
+    </div>
+    <div class="heart" style="bottom: 30%; right: 15%; animation-delay: 4s">
+      💘
+    </div>
     <div class="heart" style="top: 70%; left: 25%; animation-delay: 5s">💓</div>
 
     <!-- Sparkles -->
-    <div class="sparkle" style="top: 15%; left: 20%; animation-delay: 0.5s">✨</div>
-    <div class="sparkle" style="top: 70%; right: 25%; animation-delay: 1.5s">⭐</div>
-    <div class="sparkle" style="bottom: 20%; left: 30%; animation-delay: 2.5s">✨</div>
-    <div class="sparkle" style="top: 40%; left: 5%; animation-delay: 3.5s">💫</div>
-    <div class="sparkle" style="bottom: 60%; right: 10%; animation-delay: 4.5s">⭐</div>
+    <div class="sparkle" style="top: 15%; left: 20%; animation-delay: 0.5s">
+      ✨
+    </div>
+    <div class="sparkle" style="top: 70%; right: 25%; animation-delay: 1.5s">
+      ⭐
+    </div>
+    <div class="sparkle" style="bottom: 20%; left: 30%; animation-delay: 2.5s">
+      ✨
+    </div>
+    <div class="sparkle" style="top: 40%; left: 5%; animation-delay: 3.5s">
+      💫
+    </div>
+    <div class="sparkle" style="bottom: 60%; right: 10%; animation-delay: 4.5s">
+      ⭐
+    </div>
 
     <!-- Audio element -->
     <audio id="backgroundMusic" loop preload="auto">
@@ -946,7 +981,7 @@
           delay: 3000,
           disableOnInteraction: false,
         },
-        effect: 'coverflow',
+        effect: "coverflow",
         coverflowEffect: {
           rotate: 30,
           stretch: 0,
@@ -954,8 +989,8 @@
           modifier: 1,
           slideShadows: true,
         },
-        pagination: { 
-          el: ".swiper-pagination", 
+        pagination: {
+          el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
         },
@@ -968,13 +1003,16 @@
       // Function to start audio
       function startAudio() {
         if (!audioPlaying) {
-          audio.play().then(() => {
-            audioToggle.innerHTML = "🔊";
-            audioPlaying = true;
-          }).catch((e) => {
-            console.log("Audio play failed:", e);
-            audioToggle.innerHTML = "🔇";
-          });
+          audio
+            .play()
+            .then(() => {
+              audioToggle.innerHTML = "🔊";
+              audioPlaying = true;
+            })
+            .catch((e) => {
+              console.log("Audio play failed:", e);
+              audioToggle.innerHTML = "🔇";
+            });
         }
       }
 
@@ -983,49 +1021,53 @@
         startAudio();
         goToStep(2);
       });
-      
+
       document.getElementById("openButton").addEventListener("click", () => {
         startAudio();
         goToStep(4);
       });
-      
+
       document.getElementById("noButton").addEventListener("click", () => {
         startAudio();
         goToStep(3);
       });
-      
+
       document.getElementById("againButton").addEventListener("click", () => {
         startAudio();
         goToStep(2);
       });
-      
+
       document.getElementById("verifyButton").addEventListener("click", () => {
         startAudio();
         verifyIdentity();
       });
-      
+
       document.getElementById("backButton").addEventListener("click", () => {
         startAudio();
         goToStep(2);
       });
-      
-      document.getElementById("wrongBackButton").addEventListener("click", () => {
-        startAudio();
-        goToStep(1);
-      });
-      
+
+      document
+        .getElementById("wrongBackButton")
+        .addEventListener("click", () => {
+          startAudio();
+          goToStep(1);
+        });
+
       document.getElementById("restartButton").addEventListener("click", () => {
         startAudio();
         restart();
       });
 
       // Enter key in verification input
-      document.getElementById("nicknameInput").addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          startAudio();
-          verifyIdentity();
-        }
-      });
+      document
+        .getElementById("nicknameInput")
+        .addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            startAudio();
+            verifyIdentity();
+          }
+        });
 
       // Audio toggle
       audioToggle.addEventListener("click", toggleAudio);
@@ -1036,7 +1078,10 @@
         currentStep = step;
         setTimeout(() => {
           document.getElementById(`step${step}`).classList.add("active");
-          if (step === 6) startTypewriterEffect();
+          if (step === 6) {
+            startTypewriterEffect();
+            confetti();
+          }
         }, 400);
       }
 
@@ -1051,7 +1096,9 @@
         const input = document.getElementById("nicknameInput");
         const errorMessage = document.getElementById("errorMessage");
 
-        if (input.value.toLowerCase() === "peaches") {
+        const value = input.value.trim().toLowerCase();
+
+        if (value === "peaches") {
           goToStep(6);
         } else {
           errorMessage.textContent =
@@ -1069,13 +1116,16 @@
           audioToggle.innerHTML = "🔇";
           audioPlaying = false;
         } else {
-          audio.play().then(() => {
-            audioToggle.innerHTML = "🔊";
-            audioPlaying = true;
-          }).catch((e) => {
-            console.log("Audio play failed:", e);
-            audioToggle.innerHTML = "🔇";
-          });
+          audio
+            .play()
+            .then(() => {
+              audioToggle.innerHTML = "🔊";
+              audioPlaying = true;
+            })
+            .catch((e) => {
+              console.log("Audio play failed:", e);
+              audioToggle.innerHTML = "🔇";
+            });
         }
       }
 
@@ -1084,7 +1134,7 @@
         paragraphs.forEach((paragraph, index) => {
           setTimeout(() => {
             paragraph.classList.add("show");
-          }, (index + 1) * 1200);
+          }, (index + 1) * 300);
         });
       }
 
@@ -1108,14 +1158,14 @@
       });
 
       // Add floating hearts on hover
-      const container = document.querySelector('.container');
-      container.addEventListener('mouseenter', () => {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerHTML = '💖';
-        heart.style.left = Math.random() * 100 + '%';
-        heart.style.top = Math.random() * 100 + '%';
-        heart.style.animationDuration = '4s';
+      const container = document.querySelector(".container");
+      container.addEventListener("mouseenter", () => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.top = Math.random() * 100 + "%";
+        heart.style.animationDuration = "4s";
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 4000);
       });
